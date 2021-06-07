@@ -7,6 +7,7 @@ import TodoList from "./components/TodoList";
 function App() {
   const [inputText, setInputText] = useState("") //state of string
   const [todos, setTodos] = useState([]); //state of list
+  const [status, setStatus] = useState("all") // state for filter with default value all
   return (
     <div className="App">
       <header>
@@ -14,7 +15,7 @@ function App() {
       
       </header>
       <Form  inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText}/>
-     <TodoList todos={todos}/>
+     <TodoList todos={todos} setTodos={setTodos}/>
     </div>
   );
 }
