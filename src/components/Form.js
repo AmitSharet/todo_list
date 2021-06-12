@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 const Form = ({ inputText, setInputText , todos, setTodos, setStatus}) =>{
   //Handlers
     const inputTextHandler =(e) =>{
-        console.log(e.target.value);
+
         setInputText(e.target.value)
         //(e)consoles out the event, (e.target.value) consoles out the input value
     };
@@ -17,7 +17,6 @@ const Form = ({ inputText, setInputText , todos, setTodos, setStatus}) =>{
     };
 
     const statusHandler = (e) =>{
-      console.log(e.target.value);
       setStatus(e.target.value);
     };
 
