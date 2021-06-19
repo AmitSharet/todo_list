@@ -3,11 +3,20 @@ import React from "react"
 import Todo from "./Todo"
 
 const TodoList = ({todos, setTodos, filteredTodos}) => {
+
+  const updateTodo = (todoId, newValue) => {
+    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+      return;
+    }
+
+    setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
+  };
+
     return(
         <div className="todo-container">
         <ul className="todo-list">
           {filteredTodos.map((todo) => (
-              <Todo setTodos={setTodos}  text={todo.text} key={todo.id}  todo={todo} todos={filteredTodos} />
+              <Todo setTodos={setTodos}  text={todo.text} key={todo.id}  todo={todo} todos={filteredTodos} updateTodo={updateTodo} />
           ))}
             </ul> 
       </div>
